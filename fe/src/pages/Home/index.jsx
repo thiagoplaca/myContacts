@@ -1,4 +1,5 @@
 import { Container, Header, ListContainer, Card, InputSearchContainer } from "./styles"
+import { Link } from "react-router-dom"
 import Arrow from '../../assets/images/icons/arrow.svg'
 import Edit from '../../assets/images/icons/edit.svg'
 import Trash from '../../assets/images/icons/trash.svg'
@@ -9,9 +10,10 @@ export default function Home() {
       <InputSearchContainer>
         <input type="text" placeholder="Pesquise pelo nome..." />
       </InputSearchContainer>
+
       <Header>
         <strong>3 Contatos</strong>
-        <a href="/">Novo Contato</a>
+        <Link to="/new">Novo Contato</Link>
       </Header>
 
       <ListContainer>
@@ -34,47 +36,9 @@ export default function Home() {
         </div>
 
         <div className="actions">
-          <a href="/">
-            <img src={Edit} alt="" />
-          </a>
-          <button type="button">
-            <img src={Trash} alt="Delete" />
-          </button>
-        </div>
-      </Card>
-      <Card>
-        <div className="info">
-          <div className="contact-name">
-            <strong>Thiago Placa</strong>
-            <small>instagram</small>
-          </div>
-          <span>thiago@email.com</span>
-          <span>(55) 9999-9999</span>
-        </div>
-
-        <div className="actions">
-          <a href="/">
-            <img src={Edit} alt="" />
-          </a>
-          <button type="button">
-            <img src={Trash} alt="Delete" />
-          </button>
-        </div>
-      </Card>
-      <Card>
-        <div className="info">
-          <div className="contact-name">
-            <strong>Thiago Placa</strong>
-            <small>instagram</small>
-          </div>
-          <span>thiago@email.com</span>
-          <span>(55) 9999-9999</span>
-        </div>
-
-        <div className="actions">
-          <a href="/">
-            <img src={Edit} alt="" />
-          </a>
+          <Link to="/edit/123">
+            <img src={Edit} alt="Edit" />
+          </Link>
           <button type="button">
             <img src={Trash} alt="Delete" />
           </button>
