@@ -4,6 +4,7 @@ import Arrow from '../../assets/images/icons/arrow.svg'
 import Edit from '../../assets/images/icons/edit.svg'
 import Trash from '../../assets/images/icons/trash.svg'
 
+
 export default function Home() {
   return (
     <Container>
