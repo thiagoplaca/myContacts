@@ -49,3 +49,10 @@ export default function Home() {
     </Container>
   )
 }
+
+fetch('http://192.168.0.18:5173/new')
+  .then((response) => {
+    console.log(response)
+
+    response.headers.forEach((items) => console.log(items))
+  })
