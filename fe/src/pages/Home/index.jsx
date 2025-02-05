@@ -50,9 +50,7 @@ export default function Home() {
   )
 }
 
-fetch('http://192.168.0.18:5173/new')
+fetch('http://192.168.0.18:3001/contacts')
   .then((response) => {
-    console.log(response)
-
-    response.headers.forEach((items) => console.log(items))
+    console.log('response', response)
   })
