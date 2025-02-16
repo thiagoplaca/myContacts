@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const Container = styled.div `
+export const Container = styled.div`
   margin-top: 32px;
 `
 export const InputSearchContainer = styled.div`
@@ -27,7 +27,7 @@ export const InputSearchContainer = styled.div`
   }
 
 `
-export const Header = styled.header `
+export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -54,7 +54,7 @@ export const Header = styled.header `
   }
 `
 
-export const ListContainer = styled.div`
+export const ListHeader = styled.header`
   margin: 24px 0 8px;
 
   button {
@@ -63,12 +63,19 @@ export const ListContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 10px;
+
+    span {
+    font-weight: bold;
+    color: ${({ theme }) => theme.colors.primary.main};
+    }
+
+    img {
+      transform: ${({orderBy}) => orderBy === 'asc' ? 'rotate(180deg)' : 'rotate(0deg)'};
+      transition: transform 0.2s ease-in;
+    }
   }
 
-  span {
-    font-weight: bold;
-    color: ${({theme}) => theme.colors.primary.main};
-  }
+
 `
 export const Card = styled.div`
   background-color: #fff;
@@ -90,7 +97,7 @@ export const Card = styled.div`
       gap: 8px;
 
       small {
-        background-color: ${({theme}) => theme.colors.primary.lighter};
+        background-color: ${({ theme }) => theme.colors.primary.lighter};
         color: ${({ theme }) => theme.colors.primary.main};
         font-weight: bold;
         text-transform: uppercase;
@@ -102,7 +109,7 @@ export const Card = styled.div`
     span {
       display: block;
       font-size: 14px;
-      color: ${({theme}) => theme.colors.gray[200]};
+      color: ${({ theme }) => theme.colors.gray[200]};
 
     }
   }
