@@ -4,8 +4,8 @@ import Arrow from '../../assets/images/icons/arrow.svg'
 import Edit from '../../assets/images/icons/edit.svg'
 import Trash from '../../assets/images/icons/trash.svg'
 import Loader from '../../components/Loader'
-import delay from '../../utils/delay'
 import { useEffect, useState, useMemo } from "react"
+import ContactsService from "../../services/ContactsService"
 
 
 export default function Home() {
@@ -20,20 +20,24 @@ export default function Home() {
 
 
     useEffect(() => {
-      setIsLoading(true)
-      fetch(`http://localhost:3001/contacts?orderBy=${orderBy}`)
-        .then(async (response) => {
-          await delay(500)
+      async function loadContact() {
+        try {
+          setIsLoading(true)
 
-          const json = await response.json()
-          setContacts(json)
-        })
-        .catch((error) => {
-          console.log('error', error);
-        })
-        .finally(() => {
+          const contactsList = await ContactsService.listContacts(orderBy)
+
+          setContacts(contactsList)
+
           setIsLoading(false)
-        })
+
+        } catch (error) {
+          console.log('error', error);
+
+        } finally{
+          setIsLoading(false)
+        }
+      }
+      loadContact()
     }, [orderBy])
 
   function handleToggleOrderBy() {
