@@ -1,7 +1,5 @@
 import { useState } from "react"
 
-
-
 export default function useErrors() {
   const [errors, setErrors] = useState([])
 

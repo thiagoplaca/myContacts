@@ -21,6 +21,7 @@ import magnifierQuestion from '../../assets/images/magnifier-question.svg'
 import Loader from '../../components/Loader'
 import Button from '../../components/Button'
 import ContactsService from "../../services/ContactsService"
+import delay from '../../utils/delay'
 
 
 
@@ -38,6 +39,7 @@ export default function Home() {
 
   const loadContact = useCallback(async () => {
     try {
+      await delay(1000)
       setIsLoading(true)
 
       const contactsList = await ContactsService.listContacts(orderBy)
@@ -143,7 +145,7 @@ export default function Home() {
 
 
           {filteredContacts.length > 0 &&
-            <ListHeader orderBy={orderBy}>
+            <ListHeader orderby={orderBy}>
               <button type="button" onClick={handleToggleOrderBy}>
                 <span>Nome</span>
                 <img src={Arrow} alt="Arrow" />
