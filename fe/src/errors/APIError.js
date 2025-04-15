@@ -5,6 +5,6 @@ export default class APIError extends Error {
     this.name = "API Error";
     this.response = response;
     this.body = body;
-    this.message = body?.error || `${response.status} - ${response.statusText}`;i
+    this.message = body?.error || `${response.status} - ${response.statusText}`;
   }
 }

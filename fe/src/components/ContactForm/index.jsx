@@ -14,7 +14,7 @@ import useErrors from '../../hooks/useErrors'
 import CategoriesService from "../../services/CategoriesService"
 import delay from '../../utils/delay'
 
-export default function ContactForm({ buttonLabel }) {
+export default function ContactForm({ buttonLabel, onSubmit }) {
 
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -72,9 +72,12 @@ export default function ContactForm({ buttonLabel }) {
   function handleSubmit(event) {
     event.preventDefault()
 
-    // console.log({
-    //   name, email, phone, category
-    // })
+    onSubmit({
+      name,
+      email,
+      phone,
+      categoryId,
+    })
   }
 
 
@@ -137,4 +140,5 @@ export default function ContactForm({ buttonLabel }) {
 
 ContactForm.propTypes = {
   buttonLabel: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 }
