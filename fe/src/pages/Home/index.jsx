@@ -90,7 +90,7 @@ export default function Home() {
       )}
 
       <Header
-        justifyContent={hasError
+        $justifyContent={hasError
           ? 'flex-end'
           : (
             contacts.length > 0 ? 'space-between' : 'center'
@@ -145,7 +145,7 @@ export default function Home() {
 
 
           {filteredContacts.length > 0 &&
-            <ListHeader orderby={orderBy}>
+            <ListHeader $orderby={orderBy}>
               <button type="button" onClick={handleToggleOrderBy}>
                 <span>Nome</span>
                 <img src={Arrow} alt="Arrow" />
