@@ -22,6 +22,7 @@ import Loader from '../../components/Loader'
 import Button from '../../components/Button'
 import ContactsService from "../../services/ContactsService"
 import delay from '../../utils/delay'
+import Modal from '../../components/Modal'
 
 
 
@@ -78,6 +79,15 @@ export default function Home() {
   return (
     <Container>
       <Loader isLoading={isLoading} />
+
+      <Modal
+        danger
+        title='Tem certeza que deseja remover o contato "Thiago Placa"'
+        confirmLabel='Deletar'
+        >
+        <p>Olá</p>
+      </Modal>
+
       {contacts.length > 0 && !hasError && (
         <InputSearchContainer>
           <input

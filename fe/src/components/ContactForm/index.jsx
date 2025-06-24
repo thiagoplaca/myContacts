@@ -34,11 +34,18 @@ const ContactForm = forwardRef(({ buttonLabel, onSubmit }, ref) => {
 
   useImperativeHandle(ref, () => ({
     setFieldsValues: (contact) => {
-      setName(contact.name),
-      setEmail(contact.email)
-      setPhone(contact.phone)
-      setCategoryId(contact.category_id)
+      setName(contact.name ?? ''),
+      setEmail(formatPhone(contact.email ?? ''))
+      setPhone(contact.phone ?? '')
+      setCategoryId(contact.category_id ?? '')
     },
+
+    resetFileds: () => {
+      setName(''),
+      setEmail(''),
+      setPhone('')
+      setCategoryId('')
+    }
   }), [])
 
   useEffect(() => {
