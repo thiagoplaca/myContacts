@@ -29,7 +29,7 @@ export const StyledButton = styled.button`
     transform: scale(1) !important;
   }
 
-  ${({ theme, danger }) => danger && css`
+  ${({ theme, $danger }) => $danger && css`
       background: ${theme.colors.danger.main};
 
       &:hover {

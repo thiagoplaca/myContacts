@@ -26,7 +26,9 @@ export default function NewContact() {
         text: 'Contato cadastrado com sucesso.',
         duration: 8000,
       })
-    } catch {
+    } catch (e) {
+      console.log(e);
+
       toast({
         type: 'danger',
         text: 'Ocorreu um erro ao cadastrar o contato.'

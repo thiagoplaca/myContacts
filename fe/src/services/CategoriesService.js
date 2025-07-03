@@ -9,8 +9,6 @@ class CategoriesService {
     return this.httpClient.get('/categories')
 
   }
-
-
 }
 
 export default new CategoriesService()

@@ -19,6 +19,8 @@ export default function EditContact() {
       try {
         const contactData = await ContactsService.getContactById(id)
 
+        console.log(contactData);
+
         contactFormRef.current.setFieldsValues(contactData)
         setIsLoading(false)
         setContactName(contactData.name)
@@ -42,6 +44,7 @@ export default function EditContact() {
             email: formData.email,
             phone: formData.phone,
             category_id: formData.categoryId,
+
           }
 
           const contactData = await ContactsService.updateContact(id, contact)
@@ -53,7 +56,7 @@ export default function EditContact() {
             text: 'Contato editado com sucesso.',
             duration: 8000,
           })
-        } catch {
+        } catch{
           Toast({
             type: 'danger',
             text: 'Ocorreu um erro ao editar o contato.'
