@@ -11,7 +11,7 @@ export default function Loader({isLoading}) {
 
   return ReactDOM.createPortal(
     <Overlay>
-      <Spinner  size={90}/>
+      <Spinner size={90}/>
     </Overlay>,
     document.getElementById('loader-root')
   )

@@ -24,9 +24,9 @@ export const StyledButton = styled.button`
     transform: scale(0.998);
   }
   &[disabled]{
-    background-color: #ccc;
-    cursor: default;
-    transform: scale(1)
+    background-color: #ccc !important;
+    cursor: default !important;
+    transform: scale(1) !important;
   }
 
   ${({ theme, danger }) => danger && css`

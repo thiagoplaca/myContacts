@@ -5,44 +5,55 @@ import PropTypes from "prop-types"
 
 export default function Modal({
   danger,
+  visible,
+  isLoading,
   title,
   children,
   cancelLabel,
   confirmLabel,
   onCancel,
-  onConfirm
-  }) {
+  onConfirm,
+}) {
+
+  if (!visible) {
+    return null
+  }
+
   return ReactDOM.createPortal(
     <Overlay>
       <Container danger={danger}>
         <h1>{title}</h1>
-          <div className="modal-body">
-            {children}
-          </div>
+        <div className="modal-body">
+          {children}
+        </div>
         <Footer>
           <button
             type="button"
             className="cancel-button"
-            onClick={() => alert('Cancelou')}
-            >
+            disabled={isLoading}
+            onClick={onCancel}
+          >
             {cancelLabel}
           </button>
           <Button
             type="button"
             danger={danger}
-            onClick={() => alert('Confimou')}
-            >
+            onClick={onConfirm}
+            isLoading={isLoading}
+          >
             {confirmLabel}
           </Button>
         </Footer>
       </Container>
     </Overlay>,
-      document.getElementById('modal-root')
+    document.getElementById('modal-root')
   )
 }
 
 Modal.propTypes = {
   danger: PropTypes.bool,
+  visible: PropTypes.bool,
+  isLoading: PropTypes.bool,
   title: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   cancelLabel: PropTypes.string,
@@ -53,6 +64,7 @@ Modal.propTypes = {
 
 Modal.defaultProps = {
   danger: false,
+  isLoading: false,
   cancelLabel: 'Cancelar',
   confirmLabel: 'Confirmar'
 }
