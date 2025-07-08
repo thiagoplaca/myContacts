@@ -1,5 +1,4 @@
 import PropTypes from "prop-types"
-import { Children } from "react"
 import ReactDom from 'react-dom'
 
 export default function ReactPortal({containerId, children}) {

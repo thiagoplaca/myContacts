@@ -12,6 +12,7 @@ import isEmailValid from "../../utils/isValidEmail"
 import formatPhone from "../../utils/formatPhone"
 import useErrors from '../../hooks/useErrors'
 import CategoriesService from "../../services/CategoriesService"
+import useStateAsyncState from "../../hooks/useSafeAsyncState"
 
 const ContactForm = forwardRef(({ buttonLabel, onSubmit }, ref) => {
   ContactForm.displayName = "ContactForm"
@@ -20,8 +21,8 @@ const ContactForm = forwardRef(({ buttonLabel, onSubmit }, ref) => {
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
   const [categoryId, setCategoryId] = useState('')
-  const [categories, setCategories] = useState([])
-  const [isLoadingCategories, setIsLoadingCategories] = useState(true)
+  const [categories, setCategories] = useStateAsyncState([])
+  const [isLoadingCategories, setIsLoadingCategories] = useStateAsyncState(true)
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const {
@@ -63,7 +64,7 @@ const ContactForm = forwardRef(({ buttonLabel, onSubmit }, ref) => {
     }
 
     loadCategories()
-  }, [])
+  }, [setCategories, setIsLoadingCategories])
 
   function handleNameChange(event) {
     setName(event.target.value)
