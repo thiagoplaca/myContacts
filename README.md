@@ -39,3 +39,8 @@ Para garantir uma aplicação organizada e escalável, foram aplicados os seguin
 - **Singleton Pattern**: Implementação de classes para Repositories e Controllers garantindo uma única instância por serviço, otimizando o consumo de recursos da API.
 - **Clean Architecture**: Separação clara de responsabilidades entre as camadas de rotas, lógica de negócio e infraestrutura.
 
+## MyContacts 📇
+
+> 🚀 **Confira o projeto online:** [Clique Aqui](https://www.devprojetos.site/)
+
+
